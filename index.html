@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evening Study | CSE 471 Project 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav aria-label="Project pages">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="organ.html">Organ</a>
+    <a href="effects.html">Effects</a>
+    <a href="additive.html">Additive</a>
+    <a href="wavetable.html">Wavetable</a>
+  </nav>
+  <main>
+    <h1>Evening Study</h1>
+    <p>CSE 471 Project 1 &middot; Alan Livingston (livin150)</p>
+    <p>I worked on this project by myself. I was the only group member and was responsible for all parts of the project.</p>
+    <h2>Song</h2>
+    <p>The song has organ chords, an additive melody, and a wavetable bass. It is 60.5 seconds long and has 250 notes. The WAV files are 44,100 Hz, 16-bit stereo.</p>
+    <audio controls preload="none" src="audio/evening-study.wav">Use the WAV link below to play the song.</audio>
+    <p><a href="audio/evening-study.wav" download>Download song</a> &middot; <a href="scores/evening-study.score" download>Download XML score</a></p>
+    <h2>Components</h2>
+    <p>I am the owner of all four components. Organ is my assigned instrument. I used the solo-project requirement of basic effects through 10/50 and organ through 40/50. Additive and wavetable are my two extra instruments.</p>
+    <ul>
+      <li><a href="organ.html">Organ</a> &mdash; required instrument, through 40/50.</li>
+      <li><a href="effects.html">Basic effects</a> &mdash; required effects, 10/50.</li>
+      <li><a href="additive.html">Additive</a> &mdash; extra instrument 1, through 50/50.</li>
+      <li><a href="wavetable.html">Wavetable</a> &mdash; extra instrument 2, through 50/50.</li>
+    </ul>
+    <p>Each page explains the component and includes its demo and score. The effects page uses the organ demo.</p>
+    <h2>Score format</h2>
+    <p>I used the Step 5 XML format with the <code>.score</code> extension. The <code>score</code> element sets <code>bpm</code>, <code>beatspermeasure</code>, output <code>duration</code> in seconds, and master <code>gain</code>. Each <code>instrument</code> element names Organ, Additive, or Wavetable and contains its notes.</p>
+    <p>Each <code>note</code> gives its <code>measure</code>, <code>beat</code>, <code>duration</code> in beats, and pitch in <code>note</code>, such as C4. Measures and beats start at 1. <code>volume</code> sets the note level, and <code>pan</code> runs from -1 (left) to 1 (right). Envelope times are in seconds; <code>sustain</code> is a level from 0 to 1. The component pages explain their extra fields.</p>
+    <h2>Step 5 framework</h2>
+    <p>I started with the course Step 5 Synthie framework. The sequencer mixes and writes one stereo frame at a time. Additive and wavetable share the ADSR envelope and XML helpers. Organ has its own attack and release. The waveforms are made with math; there are no outside audio samples.</p>
+    <h2>AI use statement</h2>
+    <p>I used ChatGPT for a big part of this project, including helping create a good amount of the code, helping compose the music, teaching me and guiding me through making a website, and troubleshooting. I guided the process by setting requirements, reviewing the results, and requesting changes. I also worked through the main ideas behind the synthesis components, XML scores, and streaming audio so I understood how the project worked. I also hosted the website myself and lead the entire project and tested myself completely for the most of this project. This was a learning process where I used AI assistance while taking responsibility for understanding and checking the final submission.</p>
+  </main>
+  <footer>Alan Livingston (livin150) &middot; CSE 471 Project 1</footer>
+</body>
+</html>

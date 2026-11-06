@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wavetable | CSE 471 Project 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav aria-label="Project pages">
+    <a href="index.html">Home</a>
+    <a href="organ.html">Organ</a>
+    <a href="effects.html">Effects</a>
+    <a href="additive.html">Additive</a>
+    <a href="wavetable.html" aria-current="page">Wavetable</a>
+  </nav>
+  <main>
+    <h1>Wavetable</h1>
+    <p><strong>Owner:</strong> Alan Livingston (livin150). Extra instrument 2, through 50/50.</p>
+    <h2>Demo (12 seconds)</h2>
+    <audio controls preload="none" src="audio/wavetable-demo.wav">Use the WAV link below to play the demo.</audio>
+    <p><a href="audio/wavetable-demo.wav" download>Download WAV</a> &middot; <a href="scores/wavetable-demo.score" download>Download XML score</a></p>
+    <h2>How it works</h2>
+    <p>The wavetable instrument makes a 2048-sample wave cycle before a note starts. The <code>wave</code> field chooses 0 = sine, 1 = square, 2 = sawtooth, 3 = triangle, or 4 = soft reed. The tables are made by adding harmonics below half the sample rate.</p>
+    <p>The program reads between samples with linear interpolation. The read position advances by <code>frequency * tableSize / sampleRate</code>, so the note pitch changes the playback speed. The loop starts at sample 0 and ends just before sample 2048. When the position reaches the end, it wraps back around.</p>
+    <p>The shared ADSR envelope uses <code>attack</code>, <code>decay</code>, <code>sustain</code>, and <code>release</code>. <code>waveEnd</code> chooses a second table. Both tables use the same read position, and the sound gradually changes from the first to the second during the note. If <code>waveEnd</code> is missing, the wave stays the same. These tables hold short wave cycles.</p>
+    <h2>Grading elements</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">Element</th><th scope="col">Where to hear it in the demo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10: Wave playback</td><td>0&ndash;3 s: all five waves play at C4.</td></tr>
+        <tr><td>20: Envelope</td><td>6&ndash;8.7 s: a held note uses a slow ADSR envelope.</td></tr>
+        <tr><td>30: Pitch</td><td>3&ndash;5.5 s: the same wave plays C4, E4, G4, and C5.</td></tr>
+        <tr><td>40: Loop points</td><td>6&ndash;8.7 s: the wave cycle repeats during the held note.</td></tr>
+        <tr><td>50: Cross-fading</td><td>9&ndash;11.8 s: a chord changes from square to sine.</td></tr>
+      </tbody>
+    </table>
+    <p>In the song, wavetable plays the bass. It changes pitch, uses all five waves, and cross-fades between tables. Each note loops its wave cycle and uses an envelope.</p>
+  </main>
+  <footer>Alan Livingston (livin150) &middot; CSE 471 Project 1</footer>
+</body>
+</html>

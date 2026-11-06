@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basic effects | CSE 471 Project 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav aria-label="Project pages">
+    <a href="index.html">Home</a>
+    <a href="organ.html">Organ</a>
+    <a href="effects.html" aria-current="page">Effects</a>
+    <a href="additive.html">Additive</a>
+    <a href="wavetable.html">Wavetable</a>
+  </nav>
+  <main>
+    <h1>Basic effects</h1>
+    <p><strong>Owner:</strong> Alan Livingston (livin150). Required effects component, 10/50.</p>
+    <h2>Demo (12 seconds)</h2>
+    <audio controls preload="none" src="audio/organ-demo.wav">Use the WAV link below to play the demo.</audio>
+    <p><a href="audio/organ-demo.wav" download>Download WAV</a> &middot; <a href="scores/organ-demo.score" download>Download XML score</a></p>
+    <h2>How it works</h2>
+    <p>The basic effects component takes one mixed stereo frame and copies the left and right samples to the output. It passes the audio through unchanged, which is the 10-point requirement. The sequencer calls it for every frame, then applies the score's master gain.</p>
+    <p>I used the organ demo for this component. It has only organ notes, and the audio goes through the same effects component used for the song.</p>
+  </main>
+  <footer>Alan Livingston (livin150) &middot; CSE 471 Project 1</footer>
+</body>
+</html>

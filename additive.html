@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Additive | CSE 471 Project 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav aria-label="Project pages">
+    <a href="index.html">Home</a>
+    <a href="organ.html">Organ</a>
+    <a href="effects.html">Effects</a>
+    <a href="additive.html" aria-current="page">Additive</a>
+    <a href="wavetable.html">Wavetable</a>
+  </nav>
+  <main>
+    <h1>Additive</h1>
+    <p><strong>Owner:</strong> Alan Livingston (livin150). Extra instrument 1, through 50/50.</p>
+    <h2>Demo (12 seconds)</h2>
+    <audio controls preload="none" src="audio/additive-demo.wav">Use the WAV link below to play the demo.</audio>
+    <p><a href="audio/additive-demo.wav" download>Download WAV</a> &middot; <a href="scores/additive-demo.score" download>Download XML score</a></p>
+    <h2>How it works</h2>
+    <p>The additive instrument adds sine waves using the amplitudes in <code>harmonics</code>. The first value controls the fundamental, the second controls twice that frequency, and so on. My scores use eight values. Frequencies at or above half the sample rate are left out.</p>
+    <p><code>harmonicsEnd</code> gives a second set of amplitudes. Each amplitude gradually changes from its starting value to its ending value during the note. If that field is missing, the sound keeps the starting values. The sum is divided by a fixed amplitude total to control its level.</p>
+    <p>The ADSR envelope controls attack, decay, sustain, and release using those four XML fields. Each note has its own oscillator and envelope, so notes can overlap. <code>vibrato</code> sets the fractional pitch-change depth, and <code>vibratoRate</code> sets its speed in Hz. All harmonics follow that pitch change.</p>
+    <h2>Grading elements</h2>
+    <table>
+      <thead>
+        <tr><th scope="col">Element</th><th scope="col">Where to hear it in the demo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10: Sinusoid playback</td><td>0&ndash;1 s: a sine tone.</td></tr>
+        <tr><td>20: Harmonic definitions</td><td>1.25&ndash;2.25 s: a note uses eight harmonic amplitudes from XML.</td></tr>
+        <tr><td>30: Envelope</td><td>2.5&ndash;5.2 s: a note has a slow attack, decay, sustain, and release.</td></tr>
+        <tr><td>35: Polyphony</td><td>5.5&ndash;8.3 s: three notes play together.</td></tr>
+        <tr><td>40: Cross-fading</td><td>5.5&ndash;8.3 s: the chord changes between two harmonic settings.</td></tr>
+        <tr><td>50: Vibrato</td><td>8.5&ndash;11.7 s: a held note uses 5 Hz vibrato and cross-fading.</td></tr>
+      </tbody>
+    </table>
+    <p>In the song, additive plays the melody and some longer harmony notes. The notes use cross-fading, with vibrato added in later sections. The longer notes also overlap and use longer envelopes.</p>
+  </main>
+  <footer>Alan Livingston (livin150) &middot; CSE 471 Project 1</footer>
+</body>
+</html>
